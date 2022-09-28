@@ -1,4 +1,2 @@
-// Page's layouts
-// export * from "./home";
-
-// export * from "./components";
+export * from "./components";
+export * from "./hooks";

@@ -53,6 +53,7 @@ export default function FocusTrap({ children, focusFirst = false }: Props) {
     return () => {
       returnFocus()
     }
+    // eslint-disable-next-line
   }, [root, children])
 
   return React.createElement(

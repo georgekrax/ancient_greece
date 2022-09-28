@@ -4,7 +4,7 @@ import React from "react";
 type Props = {
   className?: string;
   children?: any;
-  el?: HTMLElement;
+  el?: keyof HTMLElementTagNameMap;
   clean?: boolean;
 };
 

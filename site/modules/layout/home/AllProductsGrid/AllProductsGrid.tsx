@@ -1,7 +1,7 @@
+import { Grid } from "@chakra-ui/react";
 import Link from "next/link";
 
 import type { Product } from "@commerce/types/product";
-import { Grid } from "@components/ui";
 import { getCategoryPath, getDesignerPath } from "@lib/search";
 import { ProductCard } from "@modules/product";
 
@@ -40,21 +40,18 @@ const HomeAllProductsGrid = ({ categories, brands, products = [] }: Props): Comp
           </ul>
         </div>
       </div>
-      <div className="flex-1">
-        <Grid layout="normal">
-          {products.map(product => (
-            <ProductCard
-              key={product.path}
-              product={product}
-              variant="simple"
-              imgProps={{
-                width: 480,
-                height: 480,
-              }}
-            />
-          ))}
-        </Grid>
-      </div>
+      <Grid flex={1}>
+        {products.map(product => (
+          <ProductCard
+            key={product.path}
+            product={product}
+            imgProps={{
+              width: 480,
+              height: 480,
+            }}
+          />
+        ))}
+      </Grid>
     </div>
   );
 };

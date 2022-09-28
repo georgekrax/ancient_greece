@@ -1,8 +1,6 @@
 export { default as Collapse } from "./Collapse";
 export { default as Container } from "./Container";
 export { default as Button } from "./Button";
-export * from "./Dropdown/Dropdown";
-export { default as Grid } from "./Grid";
 export { default as Hero } from "./Hero";
 export { default as Input } from "./Input";
 export { default as LoadingDots } from "./LoadingDots";

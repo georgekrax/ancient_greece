@@ -25,7 +25,7 @@ const addItem: CartEndpoint['handlers']['addItem'] = async ({
         : {}),
     }),
   }
-  const { data } = cartId
+  const { data } = (cartId
     ? await config.storeApiFetch(
         `/v3/carts/${cartId}/items?include=line_items.physical_items.options,line_items.digital_items.options`,
         options
@@ -33,7 +33,7 @@ const addItem: CartEndpoint['handlers']['addItem'] = async ({
     : await config.storeApiFetch(
         '/v3/carts?include=line_items.physical_items.options,line_items.digital_items.options',
         options
-      )
+      ) as any)
 
   // Create or update the cart cookie
   res.setHeader(

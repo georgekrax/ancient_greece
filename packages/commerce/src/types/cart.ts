@@ -1,12 +1,15 @@
 import type { Discount, Measurement, Image } from './common'
 
 export type SelectedOption = {
-  // The option's id.
-  id?: string
-  // The product option’s name.
-  name: string
-  /// The product option’s value.
-  value: string
+  // // The option's id.
+  // id?: string
+  // // The product option’s name.
+  // name: string
+  // /// The product option’s value.
+  // value: string
+  id: number
+  displayName: string
+  values: { label: string; hexColors?: string[] }[]
 }
 
 export type LineItem = {

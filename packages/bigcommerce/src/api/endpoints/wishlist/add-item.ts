@@ -39,7 +39,7 @@ const addItem: WishlistEndpoint['handlers']['addItem'] = async ({
           customer_id: Number(customerId),
           items: [parseWishlistItem(item)],
         }),
-      })
+      }) as any;
       return res.status(200).json(data)
     }
 
@@ -52,7 +52,7 @@ const addItem: WishlistEndpoint['handlers']['addItem'] = async ({
           items: [parseWishlistItem(item)],
         }),
       }
-    )
+    ) as any;
 
     // Returns Wishlist
     return res.status(200).json(data)

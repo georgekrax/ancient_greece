@@ -69,7 +69,7 @@ const CheckoutSidebarView = (): ComponentElement => {
         />
 
         <ul className={s.lineItemsList}>
-          {cartData!.lineItems.map(item => (
+          {cartData!.lineItems.map((item: any) => (
             <CartItem
               key={item.id}
               item={item}

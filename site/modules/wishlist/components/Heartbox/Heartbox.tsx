@@ -10,6 +10,7 @@ import useRemoveItem from "@framework/wishlist/use-remove-item";
 import useWishlist from "@framework/wishlist/use-wishlist";
 import { Iconbox, IconboxProps } from "@components/common";
 import { Heart, HeartFilled } from "@components/icons";
+import { useUI } from "@lib/contexts";
 
 const MotionFilledHeart = motion(HeartFilled);
 
@@ -22,24 +23,20 @@ const Heartbox = ({ productId, variant, boxSize, ...props }: Props): ComponentEl
   const [_isFavourite, setIsFavourite] = useState(false);
   const favouriteColor = useToken("colors", "orange.500");
 
+  const { openModal } = useUI();
+
   const { data } = useWishlist();
   const addItem = useAddItem();
   const removeItem = useRemoveItem();
   const { data: customer } = useCustomer();
 
-  const itemInWishlist = data?.items?.find(
-    item => item.product_id === Number(productId) && item.variant_id === Number(variant.id)
+  const itemInWishlist = (data as any)?.items?.find(
+    (item: any) => item.product_id === Number(productId) && item.variant_id === Number(variant.id)
   );
   const isFavourite = _isFavourite || !!itemInWishlist;
 
-  // const { data: session } = useSession();
-
-  // const { handleLogin } = useAuth({ skip: true });
   const handleClick = async () => {
-    if (false && !customer) {
-      // !Fix
-      return openModal({ view: "LOGIN_VIEW" });
-    }
+    if (!customer) return openModal({ view: "LOGIN_VIEW" });
 
     try {
       if (isFavourite) {

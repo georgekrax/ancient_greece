@@ -2,16 +2,10 @@ import { Flex, FlexProps } from "@chakra-ui/react";
 
 import { CartItemProps } from "@modules/cart/components";
 
-type ItemOption = {
-  id: number;
-  displayName: string;
-  values: { label: string; hexColors?: string[] }[];
-};
-
 type Props = Pick<CartItemProps, "item"> & FlexProps;
 
 const Options = ({ item, ...props }: Props): ComponentElement => {
-  const options = item.options as ItemOption[];
+  const options = item.options ?? [];
 
   if (options.length === 0) return;
 

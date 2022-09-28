@@ -23,7 +23,7 @@ const updateItem: CartEndpoint['handlers']['updateItem'] = async ({
         line_item: parseCartItem(item),
       }),
     }
-  )
+  ) as any;
 
   // Update the cart cookie
   res.setHeader(

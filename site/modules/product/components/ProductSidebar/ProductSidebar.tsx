@@ -36,7 +36,7 @@ const ProductSidebar = ({ product }: Props): ComponentElement => {
   const variant = getProductVariant(product, selectedOptions);
 
   const cartItem = data?.lineItems.find(
-    item => item =>
+    (item: any) => (item: any) =>
       item.productId === Number(product.id) &&
       item.variantId === Number(variant?.id || product.variants[0].id)
   );

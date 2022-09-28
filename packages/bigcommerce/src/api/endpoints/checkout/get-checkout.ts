@@ -22,7 +22,8 @@ const getCheckout: CheckoutEndpoint['handlers']['getCheckout'] = async ({
     {
       method: 'POST',
     }
-  )
+  ) as any;
+  
   const customerId =
     customerToken && (await getCustomerId({ customerToken, config }))
 

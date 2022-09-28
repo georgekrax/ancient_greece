@@ -2,6 +2,7 @@ import { Box, Button, Flex, Grid, Skeleton } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { memo, useEffect, useMemo, useState } from "react";
 
+import type { Product } from "@commerce/types/product";
 import useSearch from "@framework/product/use-search";
 import { useSearchCtx, useUI } from "@lib/contexts";
 import { useFilters } from "@lib/hooks";
@@ -102,12 +103,12 @@ const SearchView = ({ products, pageProps: { categories } }: SearchPropsType): C
       >
         {data ? (
           <>
-            {data.products.map((product, idx) => (
+            {(data.products as Product[]).map((product, i) => (
               <ProductCard
                 // key={product.path}
-                key={idx}
+                key={i}
                 product={product}
-                imgProps={{ width: 480, height: 480, priority: idx <= 3 }}
+                imgProps={{ width: 480, height: 480, priority: i <= 3 }}
               />
             ))}
           </>

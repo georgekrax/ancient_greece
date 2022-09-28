@@ -63,7 +63,7 @@ const ProductCard = ({ product, imgProps, tags, container }: Props): ComponentEl
   const removeItem = useRemoveItem();
 
   const cartItem = data?.lineItems.find(
-    item => item =>
+    (item: any) => (item: any) =>
       item.productId === Number(product.id) && item.variantId === Number(product.variants[0].id)
   );
   const isInCart = _isInCart || !!cartItem;
@@ -114,7 +114,8 @@ const ProductCard = ({ product, imgProps, tags, container }: Props): ComponentEl
         <Image
           src={
             "https://cdn.plaisio.gr/mms/Product-Images/PlaisioGr/3/6/3/7/1/3/1/3637131.jpg" ||
-            img.url || placeholderImg
+            img.url ||
+            placeholderImg
           }
           alt={img.altText || "Product Image"}
           quality={85}

@@ -3,6 +3,7 @@ import "@styles/global.scss";
 import "keen-slider/keen-slider.min.css";
 
 import { NextPage } from "next";
+import { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import type { AppProps } from "next/app";
 import { useEffect } from "react";
@@ -21,7 +22,7 @@ const Noop = ({ children }: React.PropsWithChildren): ComponentElement => <>{chi
 export default function MyApp({
   Component,
   pageProps: { session, ...pageProps },
-}: AppProps): ComponentElement {
+}: AppProps<{ session: Session }>): ComponentElement {
   const Layout = (Component as any).Layout || Noop;
 
   useWindowSize();
