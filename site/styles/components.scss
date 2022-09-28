@@ -1,0 +1,18 @@
+.fit {
+  min-height: calc(100vh - 88px);
+}
+
+.link {
+  text-decoration: none;
+  outline: none;
+  color: var(--hashtag-colors-blue-500);
+  cursor: pointer;
+  opacity: 1;
+  transition-property: var(--hashtag-transition-property-common);
+  transition-timing-function: var(--hashtag-transition-easing-ease-in);
+  transition-duration: var(--hashtag-transition-duration-fast);
+
+  &:hover {
+    opacity: 0.75;
+  }
+}

@@ -1,51 +1,47 @@
-import type { GetStaticPropsContext } from 'next'
-import useCart from '@framework/cart/use-cart'
-import usePrice from '@framework/product/use-price'
-import commerce from '@lib/api/commerce'
-import { Layout } from '@components/common'
-import { Button, Text, Container } from '@components/ui'
-import { Bag, Cross, Check, MapPin, CreditCard } from '@components/icons'
-import { CartItem } from '@components/cart'
-import { useUI } from '@components/ui/context'
+import type { GetStaticPropsContext } from "next";
 
-export async function getStaticProps({
-  preview,
-  locale,
-  locales,
-}: GetStaticPropsContext) {
-  const config = { locale, locales }
-  const pagesPromise = commerce.getAllPages({ config, preview })
-  const siteInfoPromise = commerce.getSiteInfo({ config, preview })
-  const { pages } = await pagesPromise
-  const { categories } = await siteInfoPromise
+import useCart from "@framework/cart/use-cart";
+import usePrice from "@framework/product/use-price";
+import { Bag, Check, CreditCard, Cross, MapPin } from "@components/icons";
+import { Button, Container, Text } from "@components/ui";
+import commerce from "@lib/api/commerce";
+import { useUI } from "@lib/contexts";
+import { CartItem } from "@modules/cart";
+import { Layout } from "@modules/layout/components";
+
+export async function getStaticProps({ preview, locale, locales }: GetStaticPropsContext) {
+  const config = { locale, locales };
+  const pagesPromise = commerce.getAllPages({ config, preview });
+  const siteInfoPromise = commerce.getSiteInfo({ config, preview });
+  const { pages } = await pagesPromise;
+  const { categories } = await siteInfoPromise;
   return {
     props: { pages, categories },
-  }
+  };
 }
 
 export default function Cart() {
-  const error = null
-  const success = null
-  const { data, isLoading, isEmpty } = useCart()
-  const { openSidebar, setSidebarView } = useUI()
+  const error = null;
+  const success = null;
+  
+  const { openSidebar } = useUI();
+
+  const { data, isLoading, isEmpty } = useCart();
 
   const { price: subTotal } = usePrice(
     data && {
       amount: Number(data.subtotalPrice),
       currencyCode: data.currency.code,
     }
-  )
+  );
   const { price: total } = usePrice(
     data && {
       amount: Number(data.totalPrice),
       currencyCode: data.currency.code,
     }
-  )
+  );
 
-  const goToCheckout = () => {
-    openSidebar()
-    setSidebarView('CHECKOUT_VIEW')
-  }
+  const goToCheckout = () => openSidebar({ view: "CHECKOUT_VIEW" });
 
   return (
     <Container className="grid lg:grid-cols-12 pt-4 gap-20">
@@ -68,8 +64,7 @@ export default function Cart() {
               <Cross width={24} height={24} />
             </span>
             <h2 className="pt-6 text-xl font-light text-center">
-              We couldn’t process the purchase. Please check your card
-              information and try again.
+              We couldn’t process the purchase. Please check your card information and try again.
             </h2>
           </div>
         ) : success ? (
@@ -77,9 +72,7 @@ export default function Cart() {
             <span className="border border-white rounded-full flex items-center justify-center w-16 h-16">
               <Check />
             </span>
-            <h2 className="pt-6 text-xl font-light text-center">
-              Thank you for your order.
-            </h2>
+            <h2 className="pt-6 text-xl font-light text-center">Thank you for your order.</h2>
           </div>
         ) : (
           <div className="lg:px-0 sm:px-6 flex-1">
@@ -87,20 +80,13 @@ export default function Cart() {
             <Text variant="sectionHeading">Review your Order</Text>
             <ul className="py-6 space-y-6 sm:py-0 sm:space-y-0 sm:divide-y sm:divide-accent-2 border-b border-accent-2">
               {data!.lineItems.map((item: any) => (
-                <CartItem
-                  key={item.id}
-                  item={item}
-                  currencyCode={data?.currency.code!}
-                />
+                <CartItem key={item.id} item={item} currencyCode={data?.currency.code!} />
               ))}
             </ul>
             <div className="my-6">
-              <Text>
-                Before you leave, take a look at these items. We picked them
-                just for you
-              </Text>
+              <Text>Before you leave, take a look at these items. We picked them just for you</Text>
               <div className="flex py-6 space-x-6">
-                {[1, 2, 3, 4, 5, 6].map((x) => (
+                {[1, 2, 3, 4, 5, 6].map(x => (
                   <div
                     key={x}
                     className="border border-accent-3 w-full h-24 bg-accent-2 bg-opacity-50 transform cursor-pointer hover:scale-110 duration-75"
@@ -186,7 +172,7 @@ export default function Cart() {
         </div>
       </div>
     </Container>
-  )
+  );
 }
 
-Cart.Layout = Layout
+Cart.Layout = Layout;

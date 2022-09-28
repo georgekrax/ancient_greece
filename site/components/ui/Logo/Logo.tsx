@@ -1,4 +1,4 @@
-const Logo = ({ className = '', ...props }) => (
+const Logo = ({ className = "", ...props }) => (
   <svg
     width="32"
     height="32"
@@ -16,6 +16,6 @@ const Logo = ({ className = '', ...props }) => (
       fill="var(--primary)"
     />
   </svg>
-)
+);
 
-export default Logo
+export default Logo;

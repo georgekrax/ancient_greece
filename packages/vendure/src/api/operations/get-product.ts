@@ -1,6 +1,10 @@
-import { Product } from '@vercel/commerce/types/product'
 import { OperationContext } from '@vercel/commerce/api/operations'
-import { Provider, VendureConfig } from '../'
+import { Product } from '@vercel/commerce/types/product'
+
+import {
+  Provider,
+  VendureConfig,
+} from '../'
 import { GetProductQuery } from '../../../schema'
 import { getProductQuery } from '../../utils/queries/get-product-query'
 
@@ -41,7 +45,7 @@ export default function getProductOperation({
             id: v.id,
             options: v.options.map((o) => ({
               // This __typename property is required in order for the correct
-              // variant selection to work, see `components/product/helpers.ts`
+              // variant selection to work, see `modules/product/utils.ts`
               // `getVariant()` function.
               __typename: 'MultipleChoiceOption',
               id: o.id,

@@ -1,0 +1,1 @@
+export { useAcceptCookies } from "./useAcceptCookies"

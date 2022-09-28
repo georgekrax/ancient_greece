@@ -1,0 +1,27 @@
+$px: var(--hashtag-space-container-px);
+
+// .imgContainer {
+//   margin-left: calc($px * -1);
+// }
+
+.navbarRoot {
+  right: $px;
+
+  &.hasArrived {
+    right: 0;
+  }
+}
+
+@media screen and (min-width: $sizes-container-xl) {
+  // .imgContainer {
+  //   margin-left: calc(($px * -1) - var(--hashtag-space-container-overflow-width));
+  // }
+
+  .navbarRoot {
+    right: calc(var(--hashtag-space-container-overflow-withScrollbar) + $px);
+
+    &.hasArrived {
+      right: calc(var(--hashtag-space-container-overflow-withScrollbar));
+    }
+  }
+}

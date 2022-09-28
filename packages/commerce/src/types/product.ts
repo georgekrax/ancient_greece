@@ -1,6 +1,6 @@
 export type ProductImage = {
   url: string
-  alt?: string
+  altText?: string
 }
 
 export type ProductPrice = {
@@ -31,6 +31,17 @@ export type ProductVariant = {
   availableForSale?: boolean
 }
 
+export type SearchFilterKey = 'size' | 'color' | 'price'
+
+export type SearchFilters = {
+  sizes: string[]
+  colors: string[]
+  price: {
+    min?: number
+    max?: number
+  }
+}
+
 export type Product = {
   id: string
   name: string
@@ -52,6 +63,7 @@ export type SearchProductsBody = {
   brandId?: string | number
   sort?: string
   locale?: string
+  filters?: SearchFilters
 }
 
 export type ProductTypes = {

@@ -19,12 +19,13 @@
       "@lib/*": ["lib/*"],
       "@utils/*": ["utils/*"],
       "@config/*": ["config/*"],
-      "@assets/*": ["assets/*"],
+      "@styles/*": ["styles/*"],
+      "@modules/*": ["modules/*"],
       "@components/*": ["components/*"],
       "@commerce": ["../packages/commerce/src"],
       "@commerce/*": ["../packages/commerce/src/*"],
-      "@framework": ["../packages/local/src"],
-      "@framework/*": ["../packages/local/src/*"]
+      "@framework": ["..\\packages\\local\\src"],
+      "@framework/*": ["..\\packages\\local\\src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],

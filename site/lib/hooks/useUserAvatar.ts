@@ -1,26 +1,34 @@
-import { useEffect } from 'react'
-import { useUI } from '@components/ui/context'
-import { getRandomPairOfColors } from '@lib/colors'
+import { useEffect } from "react";
 
-export const useUserAvatar = (name = 'userAvatar') => {
-  const { userAvatar, setUserAvatar } = useUI()
+import { getRandomPairOfColors } from "@lib/colors";
+import { useUI } from "@lib/contexts";
+
+import { useLocalStorage } from "./useLocalStorage";
+
+export const useUserAvatar = (name = "userAvatar") => {
+  const { userAvatar, setUserAvatar } = useUI();
+
+  const { getLocalStorageValue, setLocalStorageValue } = useLocalStorage<string>({
+    key: name,
+  });
 
   useEffect(() => {
-    if (!userAvatar && localStorage.getItem(name)) {
+    const val = getLocalStorageValue();
+    if (!userAvatar && val) {
       // Get bg from localStorage and push it to the context.
-      setUserAvatar(localStorage.getItem(name))
+      setUserAvatar(val);
     }
-    if (!localStorage.getItem(name)) {
+    if (!val) {
       // bg not set locally, generating one, setting localStorage and context to persist.
-      const bg = getRandomPairOfColors()
-      const value = `linear-gradient(140deg, ${bg[0]}, ${bg[1]} 100%)`
-      localStorage.setItem(name, value)
-      setUserAvatar(value)
+      const bg = getRandomPairOfColors();
+      const val = `linear-gradient(140deg, ${bg[0]}, ${bg[1]} 100%)`;
+      setLocalStorageValue(val);
+      setUserAvatar(val);
     }
-  }, [])
+  }, [userAvatar, setUserAvatar, getLocalStorageValue, setLocalStorageValue]);
 
   return {
     userAvatar,
     setUserAvatar,
-  }
-}
+  };
+};

@@ -1,4 +1,5 @@
 {
+  "updateTSConfig": true,
   "features": {
     "cart": true,
     "search": true,
