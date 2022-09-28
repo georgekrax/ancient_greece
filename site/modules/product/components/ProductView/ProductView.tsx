@@ -1,4 +1,4 @@
-import { Box, Heading, Flex } from "@chakra-ui/react";
+import { Box, Flex, Heading } from "@chakra-ui/react";
 
 import type { Product } from "@commerce/types/product";
 import SEO from "@components/common/SEO";
@@ -68,9 +68,25 @@ const ProductView = ({ product, relatedProducts }: Props): ComponentElement => {
         <Heading as="h5" size="md" mb={4}>
           Related Products
         </Heading>
-        <Flex gap={6} mr="-container.px" py={2} pr="container.px" overflow="auto">
+        <Flex
+          gap={6}
+          mr="-container.px"
+          py={2}
+          pr="container.px"
+          overflow="auto"
+          sx={{
+            "&::-webkit-scrollbar": {
+              display: "none",
+            },
+          }}
+        >
           {relatedProducts.map(p => (
-            <Flex key={p.path} flex="1 0 68%" className="animated fadeIn">
+            <Flex
+              key={p.path}
+              flex="1 0 auto"
+              maxW={{ base: "68%", sm: "48%", md: "25%" }}
+              className="animated fadeIn"
+            >
               <ProductCard
                 product={p}
                 key={p.path}

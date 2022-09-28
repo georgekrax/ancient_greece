@@ -5,7 +5,6 @@ import Link from "@components/ui/Link";
 
 import UserNav from "../UserNav";
 import NavbarRoot, { Props as NavbarRootProps } from "./NavbarRoot";
-import s from "./Navbar.module.scss";
 
 type Link = {
   href: string;
@@ -29,7 +28,15 @@ const Navbar = ({ links = [], root, ...props }: Props): ComponentElement => (
       {...props}
     >
       <Flex align="inherit" gap={6}>
-        <Link href="/" aria-label="Logo" className={s.logo}>
+        <Link
+          href="/"
+          aria-label="Logo"
+          borderRadius="full"
+          borderWidth="1px"
+          transitionDuration="faster"
+          transitionTimingFunction="ease-in-out"
+          _hover={{ boxShadow: "md", transform: "scale(1.05)" }}
+        >
           <Logo />
         </Link>
         <Flex as="nav" gap={4} display={{ base: "none", md: "flex" }}>

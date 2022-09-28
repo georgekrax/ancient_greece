@@ -279,7 +279,7 @@ const CartSidebarView = (): ComponentElement => {
   const { setSidebarView } = useUI();
 
   const { data, isLoading, isEmpty } = useCart();
-  const [_, hasArrived] = useScrollArrived({ element: contentRef.current, offset });
+  const [_, hasArrived] = useScrollArrived({ element: contentRef.current, offset: offset - 4 });
 
   const { price: subTotal } = usePrice(
     data && {
@@ -303,8 +303,9 @@ const CartSidebarView = (): ComponentElement => {
   const goToCheckout = () => setSidebarView("CHECKOUT_VIEW");
 
   useEffect(() => {
-    if (!contentRef.current) return;
+    if (!contentRef.current || offset) return;
     setOffset(contentRef.current.scrollHeight - contentRef.current.offsetHeight);
+    // eslint-disable-next-line
   }, []);
 
   const error = null;
@@ -356,11 +357,7 @@ const CartSidebarView = (): ComponentElement => {
                 <CartItem key={item.id} item={item} currencyCode={data!.currency.code} />
               ))} */}
             {[...products, ...products].map((item: any, i) => (
-              <CartItem
-                key={i}
-                item={item}
-                currencyCode={item.variant.currencyCode}
-              />
+              <CartItem key={i} item={item} currencyCode={item.variant.currencyCode} />
             ))}
           </Box>
           <Box

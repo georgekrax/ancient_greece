@@ -45,7 +45,7 @@ const Image = ({
           </Heading>
         </Flex>
       )}
-      <NextImage src={src} alt={alt} fill {...imgProps} style={{ objectFit: "cover" }} />
+      <NextImage src={src} alt={alt} priority={idx === 0} fill {...imgProps} style={{ objectFit: "cover" }} />
     </motion.div>
   );
 };

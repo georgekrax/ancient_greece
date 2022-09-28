@@ -19,24 +19,24 @@ export const useScrollArrived = (
   );
 
   useEffect(() => {
-    const element = params.element || document.documentElement;
+    const eventEl = params.element || document;
 
     const handleScroll = throttle(() => {
-      let { scrollTop } = element;
+      let { scrollTop } = params.element || document.documentElement;
       scrollTop = Math.ceil(scrollTop);
-
+      
       setScrollY(scrollTop);
-
+      
       if (params.offset != null) {
-        const scrolled = scrollTop >= (params.offset || 0);
+        const scrolled = scrollTop > (params.offset || 0);
 
         if (hasArrived !== scrolled) setHasArrived(scrolled);
       }
     }, 200);
 
-    element.addEventListener("scroll", handleScroll);
+    eventEl.addEventListener("scroll", handleScroll);
     return () => {
-      element.removeEventListener("scroll", handleScroll);
+      eventEl.removeEventListener("scroll", handleScroll);
     };
   }, [params.element, params.offset, hasArrived]);
 
