@@ -45,8 +45,8 @@ const AvatarItem = ({ hasLabel, ...props }: ItemProps): ComponentElement => {
       }}
       {...props}
     >
-      {/* <MenuList minW={200}>
-        {LINKS.map(({ label }, i) => (
+      <MenuList minW={200}>
+        {/* {LINKS.map(({ label }, i) => (
           <MenuItem key={i}>{label}</MenuItem>
         ))}
         <MenuDivider />
@@ -57,8 +57,8 @@ const AvatarItem = ({ hasLabel, ...props }: ItemProps): ComponentElement => {
           onClick={logout}
         >
           Log out
-        </MenuItem>
-      </MenuList> */}
+        </MenuItem> */}
+      </MenuList>
     </UserNavItem>
   );
 };
