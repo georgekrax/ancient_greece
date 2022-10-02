@@ -27,7 +27,7 @@ const Navbar = ({ links = [], root, ...props }: Props): ComponentElement => (
       px="container.px"
       {...props}
     >
-      {/* <Flex align="inherit" gap={6}> */}
+      <Flex align="inherit" gap={6}>
         {/* <Link
           href="/"
           aria-label="Logo"
@@ -46,7 +46,7 @@ const Navbar = ({ links = [], root, ...props }: Props): ComponentElement => (
             </Link>
           ))}
         </Flex> */}
-      {/* </Flex> */}
+      </Flex>
       {/* <UserNav /> */}
     </Flex>
   </NavbarRoot>
