@@ -65,7 +65,7 @@ const UserNavItem = ({
 
   const children = (
     <>
-      {_children}
+      {/* {_children} */}
       {label && <span>{label}</span>}
     </>
   );
