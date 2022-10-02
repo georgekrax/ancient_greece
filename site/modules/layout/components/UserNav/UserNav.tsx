@@ -18,7 +18,7 @@ const UserNav = ({ className }: Props): ComponentElement => {
         <BagItem />
         <WishlistItem />
         {/* <AvatarItem /> */}
-        {/* <Box as="li" display={{ base: "block", md: "none" }}>
+        <Box as="li" display={{ base: "block", md: "none" }}>
           <Button
             variant="naked"
             display="flex"
@@ -49,7 +49,7 @@ const UserNav = ({ className }: Props): ComponentElement => {
               />
             ))}
           </Button>
-        </Box> */}
+        </Box>
       </Flex>
     </Flex>
   );
