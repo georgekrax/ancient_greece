@@ -45,8 +45,8 @@ const Navbar = ({ links = [], root, ...props }: Props): ComponentElement => (
               {label}
             </Link>
           ))}
-        </Flex>
-      </Flex> */}
+        </Flex> */}
+      </Flex>
       <UserNav />
     </Flex>
   </NavbarRoot>
