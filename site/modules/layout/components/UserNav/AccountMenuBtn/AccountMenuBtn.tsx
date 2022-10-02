@@ -35,7 +35,7 @@ const AccountMenuBtn = ({
       };
     }
     // eslint-disable-next-line
-  }, [HOVER_STYLES.transform]);
+  }, [isCustomerLoggedIn, HOVER_STYLES.transform]);
 
   return (
     <MenuButton

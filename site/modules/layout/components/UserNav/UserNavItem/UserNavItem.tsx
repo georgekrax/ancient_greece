@@ -62,7 +62,7 @@ const UserNavItem = ({
 
   const isAccount = isLink === "isAccount";
   const ContainerComponent = isAccount ? Menu : React.Fragment;
-  
+
   const children = (
     <>
       {_children}
@@ -109,15 +109,16 @@ const UserNavItem = ({
         }}
       >
         {isAccount ? (
-          <>
-            {/* <AccountMenuBtn
+          // ! Don't change <div />
+          <div>
+            <AccountMenuBtn
               menuBtn={menuBtn}
               atSidebarView={atSidebarView}
               transitionStyles={TRANSITION_STYLES}
               hoverStyles={HOVER_STYLES}
-            /> */}
+            />
             {children}
-          </>
+          </div>
         ) : isLink ? (
           <Link aria-label={ariaLabel} href="/wishlist">
             {children}
