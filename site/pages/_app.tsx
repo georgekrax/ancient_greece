@@ -1,6 +1,6 @@
-import "@styles/chrome-bug.css";
-import "@styles/global.scss";
-import "keen-slider/keen-slider.min.css";
+// import "@styles/chrome-bug.css";
+// import "@styles/global.scss";
+// import "keen-slider/keen-slider.min.css";
 
 import { NextPage } from "next";
 import { Session } from "next-auth";
