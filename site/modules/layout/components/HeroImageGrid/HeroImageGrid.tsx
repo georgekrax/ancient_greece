@@ -30,7 +30,7 @@ const HeroImageGrid = ({
   images,
   img,
   content,
-  isFirstElement = false,
+  isFirstElement = true,
   variant = "simple",
   intervalChange,
   children,
