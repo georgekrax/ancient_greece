@@ -46,18 +46,18 @@ const AvatarItem = ({ hasLabel, ...props }: ItemProps): ComponentElement => {
       {...props}
     >
       <MenuList minW={200}>
-        {LINKS.map(({ label }, i) => (
+        {/* {LINKS.map(({ label }, i) => (
           <MenuItem key={i}>{label}</MenuItem>
-        ))}
-        {/* <MenuDivider /> */}
-        {/* <MenuItem
+        ))} */}
+        <MenuDivider />
+        <MenuItem
           color="red.400"
           fontWeight="semibold"
           _hover={{ bg: "red.400", color: "white" }}
           onClick={logout}
         >
           Log out
-        </MenuItem> */}
+        </MenuItem>
       </MenuList>
     </UserNavItem>
   );
