@@ -29,21 +29,21 @@ const AvatarItem = ({ hasLabel, ...props }: ItemProps): ComponentElement => {
     <UserNavItem
       isLink="isAccount"
       aria-label="Account"
-      // label={hasLabel ? "Account" : undefined}
-      // position="relative"
-      // display={!props.atSidebarView ? { base: "none", md: "flex" } : undefined}
-      // menuBtn={{
-      //   "aria-label": "Account menu",
-      //   onClick: handleClick,
-      //   sx: {
-      //     span: {
-      //       display: "flex",
-      //       alignItems: "center",
-      //       gap: isCustomerLoggedIn ? 2.5 : 0,
-      //     },
-      //   },
-      // }}
-      // {...props}
+      label={hasLabel ? "Account" : undefined}
+      position="relative"
+      display={!props.atSidebarView ? { base: "none", md: "flex" } : undefined}
+      menuBtn={{
+        "aria-label": "Account menu",
+        onClick: handleClick,
+        sx: {
+          span: {
+            display: "flex",
+            alignItems: "center",
+            gap: isCustomerLoggedIn ? 2.5 : 0,
+          },
+        },
+      }}
+      {...props}
     >
       <MenuList minW={200}>
         {LINKS.map(({ label }, i) => (
