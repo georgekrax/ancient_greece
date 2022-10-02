@@ -11,14 +11,14 @@ export type Props = {
   img: HeroImageGridProps["images"][number];
   idx: number;
   activePage: number;
-  isFirstElement?: { pt: number | string };
+  // isFirstElement?: { pt: number | string };
 };
 
 const Image = ({
   img: { src, alt, header, ...imgProps },
   idx,
   activePage,
-  isFirstElement,
+  // isFirstElement,
 }: Props): ComponentElement => {
   return (
     <motion.div
@@ -35,7 +35,7 @@ const Image = ({
           boxSize="100%"
           px={IMAGE_PX}
           py={IMAGE_PY}
-          pt={{ base: IMAGE_PX, md: isFirstElement?.pt }}
+          // pt={{ base: IMAGE_PX, md: isFirstElement?.pt }}
           zIndex={5}
           textAlign="right"
           bg="blackAlpha.400"

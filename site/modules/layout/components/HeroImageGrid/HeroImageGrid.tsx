@@ -39,7 +39,6 @@ const HeroImageGrid = ({
   const thumbnailsContainerRef = useRef<HTMLDivElement | null>(null);
 
   const space6 = useToken("space", 6);
-  const mt = useToken("space", isFirstElement ? -CONTENT_MT : 0);
   const navbarH = useToken("sizes", "navbar.h");
 
   content = { py: space6, ...content };
@@ -98,9 +97,9 @@ const HeroImageGrid = ({
       <Grid
         gap={{ base: 12, md: 4 }}
         templateColumns={{ base: "1fr", md: "repeat(12, 1fr)" }}
-        h={{ md: `calc(100vh - (${navbarH} + ${mt}))` }}
+        h={{ md: `calc(100vh - (${navbarH}))` }}
         position="relative"
-        mt={mt}
+        mt={{ base: -3, md: 0 }}
       >
         {/* Overlay */}
         <Box
@@ -123,19 +122,20 @@ const HeroImageGrid = ({
           mr={{ base: "-container.px", md: 0 }}
           gridColumn={{ base: "span 2", md: "span 6", lg: "span 7" }}
           overflow="hidden"
-          borderRightRadius={{ base: 0, md: isProductView ? 0 : 32 }}
+          borderTopRightRadius={0}
+          borderBottomRightRadius={{ base: 0, md: isProductView ? 0 : 32 }}
           {...img}
         >
-          <Box position="relative" flex={1} overflow="inherit" borderRightRadius="inherit">
+          <Box
+            position="relative"
+            flex={1}
+            overflow="inherit"
+            borderTopRightRadius="inherit"
+            borderBottomRightRadius={{ base: 0, md: isProductView ? 32 : "inherit" }}
+          >
             {images.map((img, idx) => (
               // eslint-disable-next-line jsx-a11y/alt-text
-              <Image
-                key={idx}
-                img={img}
-                idx={idx}
-                activePage={activePage}
-                isFirstElement={isFirstElement ? { pt: `calc(${space6} + ${navbarH})` } : undefined}
-              />
+              <Image key={idx} img={img} idx={idx} activePage={activePage} />
             ))}
             <CarouselIndicators
               variant={variant}
