@@ -108,14 +108,14 @@ const UserNavItem = ({
           },
         }}
       >
-        {/* {isAccount ? (
+        {isAccount ? (
           <>
-            <AccountMenuBtn
+            {/* <AccountMenuBtn
               menuBtn={menuBtn}
               atSidebarView={atSidebarView}
               transitionStyles={TRANSITION_STYLES}
               hoverStyles={HOVER_STYLES}
-            />
+            /> */}
             {children}
           </>
         ) : isLink ? (
@@ -126,7 +126,7 @@ const UserNavItem = ({
           <button aria-label={ariaLabel} onClick={onClick}>
             {children}
           </button>
-        )} */}
+        )}
       </Flex>
     </ContainerComponent>
   );

@@ -99,7 +99,7 @@ const HeroImageGrid = ({
         templateColumns={{ base: "1fr", md: "repeat(12, 1fr)" }}
         h={{ md: `calc(100vh - ${isFirstElement ? navbarH : "0px"})` }}
         position="relative"
-        mt={{ base: -3, md: 0 }}
+        mt={{ base: -3, md: isFirstElement ? -3 : 0 }}
       >
         {/* Overlay */}
         <Box
