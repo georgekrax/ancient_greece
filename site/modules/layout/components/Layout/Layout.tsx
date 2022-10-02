@@ -124,9 +124,9 @@ const Layout = ({
         mx="auto"
         px="container.px"
       >
-        {/* {navbar !== false && (
+        {navbar !== false && (
           <Navbar {...navbar} links={[...navBarlinks, ...(navbar?.links || [])]} />
-        )} */}
+        )}
         <Box as="main" flexGrow={1}>
           {children}
         </Box>

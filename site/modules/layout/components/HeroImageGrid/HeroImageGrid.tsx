@@ -30,7 +30,7 @@ const HeroImageGrid = ({
   images,
   img,
   content,
-  isFirstElement = true,
+  isFirstElement = false,
   variant = "simple",
   intervalChange,
   children,
@@ -97,7 +97,7 @@ const HeroImageGrid = ({
       <Grid
         gap={{ base: 12, md: 4 }}
         templateColumns={{ base: "1fr", md: "repeat(12, 1fr)" }}
-        h={{ md: `calc(100vh - (${navbarH}))` }}
+        h={{ md: `calc(100vh - ${isFirstElement ? navbarH : "0px"})` }}
         position="relative"
         mt={{ base: -3, md: 0 }}
       >
