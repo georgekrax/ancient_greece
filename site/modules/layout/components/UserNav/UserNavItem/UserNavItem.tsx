@@ -65,7 +65,7 @@ const UserNavItem = ({
 
   const children = (
     <>
-      {/* {_children} */}
+      {_children}
       {label && <span>{label}</span>}
     </>
   );
@@ -108,7 +108,7 @@ const UserNavItem = ({
           },
         }}
       >
-        {isAccount ? (
+        {/* {isAccount ? (
           <>
             <AccountMenuBtn
               menuBtn={menuBtn}
@@ -126,7 +126,7 @@ const UserNavItem = ({
           <button aria-label={ariaLabel} onClick={onClick}>
             {children}
           </button>
-        )}
+        )} */}
       </Flex>
     </ContainerComponent>
   );
