@@ -60,6 +60,8 @@ const Btn = ({ size, handleSearch }: Props): ComponentElement => {
         onClick={handleSearch}
         onHoverStart={() => handleHover("start")}
         onHoverEnd={() => handleHover("end")}
+        onFocus={() => handleHover("start")}
+        onBlur={() => handleHover("end")}
       >
         <AnimatePresence initial={false}>
           {isBtnHovered ? (

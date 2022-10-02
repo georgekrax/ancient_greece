@@ -78,7 +78,7 @@ const SidebarUI = ({ links }: SidebarUIProps): ComponentElement => {
   return (
     <Drawer placement="right" isOpen={displaySidebar} onClose={closeSidebar}>
       <DrawerOverlay backdropFilter="auto" backdropBlur="0.8px" />
-      <DrawerContent minW={{ base: "100%", md: "40%" }} borderLeftRadius={{ base: 0, md: "2xl" }}>
+      <DrawerContent maxW={{ md: "28rem", lg: "30rem" }} borderLeftRadius={{ base: 0, md: "2xl" }}>
         {sidebarView === "CART_VIEW" && <CartSidebarView />}
         {sidebarView === "SHIPPING_VIEW" && <ShippingView />}
         {sidebarView === "PAYMENT_METHOD_VIEW" && <PaymentMethodView />}

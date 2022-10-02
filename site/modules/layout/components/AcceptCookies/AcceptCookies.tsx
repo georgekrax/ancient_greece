@@ -24,7 +24,12 @@ const AcceptCookies = (): ComponentElement => {
         mx="auto"
         borderTopRadius="3xl"
       >
-        <Flex justify="space-between" mt={2}>
+        <Flex
+          flexDir={{ base: "column", md: "row" }}
+          justify="space-between"
+          mt={2}
+          mb={{ base: 8, md: 0 }}
+        >
           <div>
             <DrawerHeader pb={0}>This site uses cookies to improve your experience.</DrawerHeader>
             {/* ! updated link around "Privacy Policy" */}
