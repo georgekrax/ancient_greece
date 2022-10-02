@@ -17,7 +17,7 @@ const UserNav = ({ className }: Props): ComponentElement => {
       <Flex as="ul" justify="flex-end" align="center" gap={6} h="100%">
         <BagItem />
         <WishlistItem />
-        <AvatarItem />
+        {/* <AvatarItem /> */}
         {/* <Box as="li" display={{ base: "block", md: "none" }}>
           <Button
             variant="naked"
