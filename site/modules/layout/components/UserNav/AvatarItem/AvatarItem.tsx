@@ -43,7 +43,7 @@ const AvatarItem = ({ hasLabel, ...props }: ItemProps): ComponentElement => {
           },
         },
       }}
-      {...props}
+      // {...props}
     >
       <MenuList minW={200}>
         {LINKS.map(({ label }, i) => (

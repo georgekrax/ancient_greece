@@ -3,9 +3,9 @@ import React from "react";
 
 import { useUI } from "@lib/contexts";
 
-import AvatarItem from "./AvatarItem";
 import BagItem from "./BagItem";
 import WishlistItem from "./WishlistItem";
+import AvatarItem from "./AvatarItem";
 
 type Props = Pick<BoxProps, "className">;
 
@@ -17,7 +17,7 @@ const UserNav = ({ className }: Props): ComponentElement => {
       <Flex as="ul" justify="flex-end" align="center" gap={6} h="100%">
         <BagItem />
         <WishlistItem />
-        {/* <AvatarItem /> */}
+        <AvatarItem />
         <Box as="li" display={{ base: "block", md: "none" }}>
           <Button
             variant="naked"
