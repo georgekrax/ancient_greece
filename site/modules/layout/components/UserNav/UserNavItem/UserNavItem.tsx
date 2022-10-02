@@ -110,13 +110,13 @@ const UserNavItem = ({
       >
         {isAccount ? (
           <>
-            <AccountMenuBtn
+            {/* <AccountMenuBtn
               menuBtn={menuBtn}
               atSidebarView={atSidebarView}
               transitionStyles={TRANSITION_STYLES}
               hoverStyles={HOVER_STYLES}
-            />
-            {/* {children} */}
+            /> */}
+            {children}
           </>
         ) : isLink ? (
           <Link aria-label={ariaLabel} href="/wishlist">
