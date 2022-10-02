@@ -49,7 +49,7 @@ const AvatarItem = ({ hasLabel, ...props }: ItemProps): ComponentElement => {
         {LINKS.map(({ label }, i) => (
           <MenuItem key={i}>{label}</MenuItem>
         ))}
-        <MenuDivider />
+        {/* <MenuDivider /> */}
         {/* <MenuItem
           color="red.400"
           fontWeight="semibold"

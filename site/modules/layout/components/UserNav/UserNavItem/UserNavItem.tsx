@@ -11,8 +11,6 @@ import React, { useMemo } from "react";
 
 import { useUI } from "@lib/contexts";
 
-import AccountMenuBtn from "../AccountMenuBtn";
-
 const TRANSITION_STYLES: Pick<
   _FlexProps,
   "transitionDuration" | "transitionProperty" | "transitionTimingFunction"
@@ -62,7 +60,7 @@ const UserNavItem = ({
 
   const isAccount = isLink === "isAccount";
   const ContainerComponent = isAccount ? Menu : React.Fragment;
-  
+
   const children = (
     <>
       {_children}
@@ -116,7 +114,9 @@ const UserNavItem = ({
               transitionStyles={TRANSITION_STYLES}
               hoverStyles={HOVER_STYLES}
             /> */}
-            {children}
+            {/* {children} */}
+            {_children}
+            {label && <span>{label}</span>}
           </>
         ) : isLink ? (
           <Link aria-label={ariaLabel} href="/wishlist">
