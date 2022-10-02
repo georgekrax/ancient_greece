@@ -62,13 +62,14 @@ const UserNavItem = ({
 
   const isAccount = isLink === "isAccount";
   const ContainerComponent = isAccount ? Menu : React.Fragment;
-
+  
   const children = (
     <>
-      {/* {_children} */}
-      {label && <span>{label}</span>}
+      {_children}
+      {/* {label && <span>{label}</span>} */}
     </>
   );
+  console.log(_children, children);
 
   const HOVER_STYLES: SystemStyleObject = useMemo(
     () => ({
