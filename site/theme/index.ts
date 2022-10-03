@@ -6,8 +6,9 @@ import Button from "./Button";
 const CSS_VAR_PREFIX = "hashtag";
 
 const config: ThemeConfig = {
+  disableTransitionOnChange: true,
   cssVarPrefix: CSS_VAR_PREFIX,
-  initialColorMode: "light",
+  initialColorMode: "system",
   useSystemColorMode: true,
 };
 
