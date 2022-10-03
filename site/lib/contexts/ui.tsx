@@ -1,4 +1,4 @@
-import { ChakraProvider, ColorModeProvider } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import { ThemeProvider } from "next-themes";
 import React, { useCallback, useMemo } from "react";
 
@@ -285,10 +285,8 @@ export const UIProvider = (props: React.PropsWithChildren): JSX.Element => {
 
 export const ManagedUIContext = ({ children }: React.PropsWithChildren): JSX.Element => (
   <ChakraProvider theme={theme}>
-    <ColorModeProvider>
-      <UIProvider>
-        <ThemeProvider>{children}</ThemeProvider>
-      </UIProvider>
-    </ColorModeProvider>
+    <UIProvider>
+      <ThemeProvider>{children}</ThemeProvider>
+    </UIProvider>
   </ChakraProvider>
 );

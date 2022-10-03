@@ -17,7 +17,7 @@ export type Props = FlexProps & {
 };
 
 const Navbar = ({ links = [], root, ...props }: Props): ComponentElement => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode, forced,toggleColorMode } = useColorMode();
 
   return (
     <NavbarRoot {...root}>
@@ -41,7 +41,7 @@ const Navbar = ({ links = [], root, ...props }: Props): ComponentElement => {
           >
             <Logo />
           </Link>
-          <Flex boxSize={10} border="1px solid black" onClick={toggleColorMode}>{colorMode}</Flex>
+          <Flex flexDir="column" boxSize={10} border="1px solid black" onClick={toggleColorMode}>{colorMode}{forced}</Flex>
           <Flex as="nav" gap={4} display={{ base: "none", md: "flex" }}>
             {[{ label: "All products", href: "/search" }].concat(links).map(({ label, href }) => (
               <Link key={href} href={href} color="gray.800">

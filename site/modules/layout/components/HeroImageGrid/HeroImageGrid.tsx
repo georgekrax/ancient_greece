@@ -133,7 +133,7 @@ const HeroImageGrid = ({
         borderTopRightRadius={0}
         borderBottomRightRadius={{ base: 0, md: isProductView ? 0 : 32 }}
         {...img}
-        sx={{ touchAction: "pan-x" }}
+        sx={{ touchAction: "pan-y" }}
       >
         <Box
           position="relative"
