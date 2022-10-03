@@ -37,8 +37,7 @@ const commonSpacesAndSizes: ThemeOverride["sizes"] = {
 };
 
 const overrides: ThemeOverride = {
-  semanticTokens: { colors: { "chakra-body-bg": { _light: "teal", _dark: "black" } } },
-  config,
+  // config,
   components,
   space: commonSpacesAndSizes,
   sizes: {
