@@ -18,8 +18,8 @@ const Image = ({
   img: { src, alt, header, ...imgProps },
   idx,
   activePage,
-  // isFirstElement,
-}: Props): ComponentElement => {
+}: // isFirstElement,
+Props): ComponentElement => {
   return (
     <motion.div
       initial={false}
@@ -39,13 +39,21 @@ const Image = ({
           zIndex={5}
           textAlign="right"
           bg="blackAlpha.400"
+          userSelect="none"
         >
           <Heading maxW={{ base: "none", md: "75%" }} color="white" {...header}>
             {header.children}
           </Heading>
         </Flex>
       )}
-      <NextImage src={src} alt={alt} priority={idx === 0} fill {...imgProps} style={{ objectFit: "cover" }} />
+      <NextImage
+        src={src}
+        alt={alt}
+        priority={idx === 0}
+        fill
+        {...imgProps}
+        style={{ objectFit: "cover" }}
+      />
     </motion.div>
   );
 };

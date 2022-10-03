@@ -1,4 +1,5 @@
 import { Box, Flex, Grid, GridItem, GridItemProps, HeadingProps, useToken } from "@chakra-ui/react";
+import { useDrag } from "@use-gesture/react";
 import NextImage, { ImageProps } from "next/future/image";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
@@ -37,6 +38,13 @@ const HeroImageGrid = ({
 }: Props): ComponentElement => {
   const [activePage, setActivePage] = useState(0);
   const thumbnailsContainerRef = useRef<HTMLDivElement | null>(null);
+
+  const bind = useDrag(({ dragging, direction }) => {
+    const newDirection = direction[0] * -1;
+    if (dragging || (newDirection === 1 && activePage === images.length - 1)) return;
+
+    goToPage({ newDirection });
+  });
 
   const space6 = useToken("space", 6);
   const navbarH = useToken("sizes", "navbar.h");
@@ -112,11 +120,12 @@ const HeroImageGrid = ({
       />
       {/* Images */}
       <GridItem
+        {...bind()}
         as={Flex}
         flexDir="column"
         gap={isProductView ? 3 : 0}
         position="relative"
-        minH={{ base: "70vh", md: undefined }}
+        minH={{ base: "64vh", md: undefined }}
         ml="-container.px"
         mr={{ base: "-container.px", md: 0 }}
         gridColumn={{ base: "span 2", md: "span 6", lg: "span 7" }}
@@ -124,10 +133,12 @@ const HeroImageGrid = ({
         borderTopRightRadius={0}
         borderBottomRightRadius={{ base: 0, md: isProductView ? 0 : 32 }}
         {...img}
+        sx={{ touchAction: "none" }}
       >
         <Box
           position="relative"
           flex={1}
+          cursor="grab"
           overflow="inherit"
           borderTopRightRadius="inherit"
           borderBottomRightRadius={{ base: 0, md: isProductView ? 32 : "inherit" }}
