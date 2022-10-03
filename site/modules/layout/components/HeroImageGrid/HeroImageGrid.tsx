@@ -43,7 +43,6 @@ const HeroImageGrid = ({
     const newDirection = direction[0] * -1;
     const isLastImageAndWantsToGoNext = newDirection === 1 && activePage === images.length - 1;
     if (axis === "y" || dragging || isLastImageAndWantsToGoNext) return;
-    console.log(axis);
 
     goToPage({ newDirection });
   });
@@ -135,7 +134,7 @@ const HeroImageGrid = ({
         borderTopRightRadius={0}
         borderBottomRightRadius={{ base: 0, md: isProductView ? 0 : 32 }}
         {...img}
-        sx={{ touchAction: "none" }}
+        sx={{ touchAction: "pan-y" }}
       >
         <Box
           position="relative"

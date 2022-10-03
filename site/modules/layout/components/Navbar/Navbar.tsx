@@ -1,4 +1,4 @@
-import { Flex, FlexProps, useColorMode } from "@chakra-ui/react";
+import { Flex, FlexProps } from "@chakra-ui/react";
 
 import { Logo } from "@components/ui";
 import Link from "@components/ui/Link";
@@ -17,8 +17,6 @@ export type Props = FlexProps & {
 };
 
 const Navbar = ({ links = [], root, ...props }: Props): ComponentElement => {
-  const { colorMode, forced,toggleColorMode } = useColorMode();
-
   return (
     <NavbarRoot {...root}>
       <Flex
@@ -41,7 +39,6 @@ const Navbar = ({ links = [], root, ...props }: Props): ComponentElement => {
           >
             <Logo />
           </Link>
-          <Flex flexDir="column" boxSize={10} border="1px solid black" onClick={toggleColorMode}>{colorMode}{forced}</Flex>
           <Flex as="nav" gap={4} display={{ base: "none", md: "flex" }}>
             {[{ label: "All products", href: "/search" }].concat(links).map(({ label, href }) => (
               <Link key={href} href={href} color="gray.800">
