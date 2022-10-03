@@ -6,10 +6,10 @@ import Button from "./Button";
 const CSS_VAR_PREFIX = "hashtag";
 
 const config: ThemeConfig = {
-  disableTransitionOnChange: true,
+  // disableTransitionOnChange: true,
   cssVarPrefix: CSS_VAR_PREFIX,
-  initialColorMode: "system",
-  useSystemColorMode: true,
+  // initialColorMode: "system",
+  // useSystemColorMode: true,
 };
 
 const components: ThemeComponents = {
