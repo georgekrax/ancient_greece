@@ -38,6 +38,7 @@ const Navbar = ({ links = [], root, ...props }: Props): ComponentElement => (
         >
           <Logo />
         </Link>
+        1
         <Flex as="nav" gap={4} display={{ base: "none", md: "flex" }}>
           {[{ label: "All products", href: "/search" }].concat(links).map(({ label, href }) => (
             <Link key={href} href={href} color="gray.800">

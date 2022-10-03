@@ -12,8 +12,6 @@ import { CartRemoveItemView } from "@modules/cart/components";
 import { CheckoutProvider } from "@modules/checkout";
 import { AcceptCookies, Footer, Navbar, NavbarProps } from "@modules/layout/components";
 
-import s from "./Layout.module.css";
-
 const Loading = () => (
   <Flex justify="center" align="center" boxSize={80} p={3} textAlign="center">
     <LoadingDots />
@@ -117,7 +115,6 @@ const Layout = ({
       </CheckoutProvider>
       <Flex
         flexDir="column"
-        className={s.root}
         position="relative"
         maxW="container.xl"
         minH="calc(100vh)"

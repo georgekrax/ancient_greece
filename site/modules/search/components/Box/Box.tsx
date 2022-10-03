@@ -48,6 +48,7 @@ const Box = ({ size = "md", ...props }: Props): ComponentElement => {
       py={isMd ? 1.5 : 2}
       pr={2}
       border="1px solid"
+      bg="white"
       borderColor="gray.300"
       borderRadius="full"
       transitionProperty="common"
