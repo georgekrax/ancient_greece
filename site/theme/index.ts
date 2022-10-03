@@ -9,6 +9,9 @@ const config: ThemeConfig = {
   disableTransitionOnChange: true,
   cssVarPrefix: CSS_VAR_PREFIX,
   initialColorMode: "system",
+  
+  // * Note: When using system as initial color mode, the theme will change with the system preference. However, if another theme is manually selected by the user then that theme will be used on the next page load. To reset it to system preference, simply remove the chakra-ui-color-mode entry from localStorage.
+  // https://chakra-ui.com/docs/styled-system/color-mode#setup
   useSystemColorMode: true,
 };
 

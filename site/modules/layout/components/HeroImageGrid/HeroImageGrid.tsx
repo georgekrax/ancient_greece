@@ -39,9 +39,11 @@ const HeroImageGrid = ({
   const [activePage, setActivePage] = useState(0);
   const thumbnailsContainerRef = useRef<HTMLDivElement | null>(null);
 
-  const bind = useDrag(({ dragging, direction }) => {
+  const bind = useDrag(({ axis, dragging, direction, event }) => {
     const newDirection = direction[0] * -1;
-    if (dragging || (newDirection === 1 && activePage === images.length - 1)) return;
+    const isLastImageAndWantsToGoNext = newDirection === 1 && activePage === images.length - 1;
+    if (axis === "y" || dragging || isLastImageAndWantsToGoNext) return;
+    console.log(axis);
 
     goToPage({ newDirection });
   });
@@ -133,7 +135,7 @@ const HeroImageGrid = ({
         borderTopRightRadius={0}
         borderBottomRightRadius={{ base: 0, md: isProductView ? 0 : 32 }}
         {...img}
-        sx={{ touchAction: "pan-y" }}
+        sx={{ touchAction: "none" }}
       >
         <Box
           position="relative"
