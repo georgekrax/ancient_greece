@@ -31,11 +31,10 @@ const Navbar = ({ links = [], root, ...props }: Props): ComponentElement => (
         <Link
           href="/"
           aria-label="Logo"
-          borderRadius="full"
-          borderWidth="1px"
-          transitionDuration="faster"
+          transitionDuration="fast"
           transitionTimingFunction="ease-in-out"
-          _hover={{ boxShadow: "md", transform: "scale(1.05)" }}
+          // _hover={{ boxShadow: "md", transform: "scale(1.05)" }}
+          _hover={{ transform: "scale(1.05)" }}
         >
           <Logo />
         </Link>

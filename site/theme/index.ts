@@ -7,8 +7,8 @@ const CSS_VAR_PREFIX = "hashtag";
 
 const config: ThemeConfig = {
   cssVarPrefix: CSS_VAR_PREFIX,
-  // initialColorMode: "dark",
-  // useSystemColorMode: false,
+  initialColorMode: "light",
+  useSystemColorMode: true,
 };
 
 const components: ThemeComponents = {
