@@ -9,7 +9,7 @@ const config: ThemeConfig = {
   disableTransitionOnChange: true,
   cssVarPrefix: CSS_VAR_PREFIX,
   initialColorMode: "light",
-  useSystemColorMode: true,
+  useSystemColorMode: false,
 };
 
 const components: ThemeComponents = {
