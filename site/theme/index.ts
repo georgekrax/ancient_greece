@@ -37,13 +37,10 @@ const commonSpacesAndSizes: ThemeOverride["sizes"] = {
 };
 
 const overrides: ThemeOverride = {
-  // config,
+  config,
   components,
   space: commonSpacesAndSizes,
-  sizes: {
-    ...commonSpacesAndSizes,
-    // loginDialogShape: "100px",
-  },
+  sizes: commonSpacesAndSizes,
   zIndices: {
     least: 9,
     navbar: 40,

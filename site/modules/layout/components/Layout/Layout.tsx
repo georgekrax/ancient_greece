@@ -11,7 +11,6 @@ import { AuthDialog } from "@modules/auth/components";
 import { CartRemoveItemView } from "@modules/cart/components";
 import { CheckoutProvider } from "@modules/checkout";
 import { AcceptCookies, Footer, Navbar, NavbarProps } from "@modules/layout/components";
-import { useTheme } from "@emotion/react";
 
 const Loading = () => (
   <Flex justify="center" align="center" boxSize={80} p={3} textAlign="center">
@@ -107,9 +106,6 @@ const Layout = ({
     label: c.name,
     href: `/search/${c.slug}`,
   }));
-
-  const theme = useTheme();
-  console.log(theme);
 
   return (
     <CommerceProvider locale={locale}>
