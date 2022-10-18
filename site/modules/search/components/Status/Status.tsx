@@ -1,14 +1,12 @@
-import { Box, Fade } from "@chakra-ui/react";
+import { Box, Fade, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
-const TRANSITION: React.ComponentProps<typeof Fade>["transition"] = { enter: { duration: 0.6 } };
+import { UseSearch } from "@commerce/product/use-search";
 
-type Props = {
-  data?: {
-    found: boolean;
-    products: any[];
-  };
-};
+const TRANSITION: React.ComponentProps<typeof Fade>["transition"] = { enter: { duration: 0.6 } };
+type hey = ReturnType<UseSearch>;
+
+type Props = Pick<ReturnType<UseSearch>, "data">;
 
 const Status = ({ data }: Props): ComponentElement => {
   const router = useRouter();
@@ -27,15 +25,18 @@ const Status = ({ data }: Props): ComponentElement => {
             )}
           </span>
         </Fade>
-      ) : !data?.found ? (
+      ) : data?.found === false ? (
         <Fade in transition={TRANSITION}>
           <span>
+            <Text as="span" mr={3}>
+              😔
+            </Text>
             {q ? (
               <>
                 There are no products that match "<strong>{q}</strong>"
               </>
             ) : (
-              <>There are no products that match the selected category.</>
+              <>There are no products that match your criteria</>
             )}
           </span>
         </Fade>

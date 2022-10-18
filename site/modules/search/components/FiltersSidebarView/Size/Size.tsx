@@ -29,6 +29,12 @@ const Size = (props: Props): ComponentElement => {
       .filter(({ displayName }) => displayName.toLowerCase() === "size");
 
     let sizeVals = sizes.map(({ values }) => values.map(({ label }) => label)).flat(2);
+    sizeVals = sizeVals.map(size => {
+      const textBetweenParentheses = size.match(/\(([^)]+)\)/)![1];
+      const [label, height] = textBetweenParentheses.split("-").map(val => val.trim());
+      return label;
+    });
+
     sizeVals = Array.from([...new Set(sizeVals)]);
 
     return sizeVals.sort((a, b) => SORT_WEIGHT[a] - SORT_WEIGHT[b]);

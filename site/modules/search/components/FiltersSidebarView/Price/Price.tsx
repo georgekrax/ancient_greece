@@ -24,6 +24,7 @@ const Price = (props: Props): ComponentElement => {
   const { filters, setFilter, removeFilter, formatPrice } = useFilters();
 
   const { min, max } = filters.price;
+  console.log(pureProducts);
 
   const { minPrice, maxPrice, step, currencyCode } = useMemo(() => {
     const prices = pureProducts.map(({ price }) => price.value);

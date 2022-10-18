@@ -113,7 +113,7 @@ const ProductCard = ({ product, imgProps, tags, container }: Props): ComponentEl
       >
         <Image
           src={
-            "https://cdn.plaisio.gr/mms/Product-Images/PlaisioGr/3/6/3/7/1/3/1/3637131.jpg" ||
+            // "https://cdn.plaisio.gr/mms/Product-Images/PlaisioGr/3/6/3/7/1/3/1/3637131.jpg" ||
             img.url ||
             placeholderImg
           }

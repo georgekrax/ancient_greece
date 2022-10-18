@@ -3,6 +3,7 @@ import Link from "next/link";
 import { NextRouter, useRouter } from "next/router";
 
 import { filterQuery } from "@lib/search";
+import { UseSearch } from "@commerce/product/use-search";
 
 const SORT = {
   "trending-desc": "Trending",
@@ -13,9 +14,9 @@ const SORT = {
   "price-hello": "Price: High to low",
 };
 
-type Props = Pick<NextRouter, "pathname">;
+type Props = Pick<NextRouter, "pathname"> & Pick<ReturnType<UseSearch>, "data">;
 
-const Sort = ({ pathname }: Props): ComponentElement => {
+const Sort = ({ pathname, data }: Props): ComponentElement => {
   const router = useRouter();
   const { sort, ...query } = router.query;
 
@@ -49,6 +50,7 @@ const Sort = ({ pathname }: Props): ComponentElement => {
                 colorScheme="primary"
                 _hover={{ bg: "primary.500", color: "white" }}
                 {...(!isSelected && { bg: "white", color: "gray.800" })}
+                isDisabled={!data?.found}
               >
                 {label}
               </Button>

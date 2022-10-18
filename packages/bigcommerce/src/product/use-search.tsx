@@ -92,6 +92,7 @@ export const handler: SWRHook<SearchProductsHook> = {
           data: {
             ...res.data,
             products: filteredProducts,
+            pureProducts: res.data.products,
           },
         };
       }

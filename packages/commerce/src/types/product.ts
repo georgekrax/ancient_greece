@@ -74,6 +74,7 @@ export type ProductTypes = {
 export type SearchProductsHook<T extends ProductTypes = ProductTypes> = {
   data: {
     products: T['product'][]
+    pureProducts: T['product'][]
     found: boolean
   }
   body: T['searchBody']
